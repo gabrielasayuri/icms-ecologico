@@ -1,0 +1,67 @@
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+input {
+  border: 2px solid #000;
+  width: 100%;
+  height: 30px;
+  margin-top: 15px;
+  padding: 0 20px;
+}
+
+input:focus {
+  outline: none;
+}
+
+label {
+  width: max-content;
+  height: min-content;
+  position: absolute;
+  /* background: rgba( 255, 255, 255, .8 ); */
+  z-index: 1;
+  top: 23px;
+  left: 20px;
+  font-style: italic;
+  font-size: 1em;
+  transition: 0.2s ease all;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+  top: 10px;
+  font-size: .8em;
+}
+
+.line {
+  position: relative;
+  display: block;
+}
+
+.line:before, .line:after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  width: 0;
+  top: -30px;
+  left: 15px;
+  height: 3px;
+  transition: 0.2s ease all;
+}
+
+.line:before {
+  left: 50%;
+}
+
+.line:after {
+  right: 50%;
+}
+
+input:focus ~ .line:before, 
+input:focus ~ .line:after,
+input:valid ~ .line:before,
+input:valid ~ .line:after {
+  width: 50%;
+}

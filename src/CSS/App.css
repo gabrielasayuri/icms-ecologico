@@ -1,0 +1,249 @@
+.fixed {
+  position: fixed;
+}
+
+.full-view {
+  height: 100vh;
+  width: 100%;
+}
+
+.full-heigth {
+  height: 100vh;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.vertical-align-row {
+  align-items: center;
+}
+
+.grow-1 {
+  flex-grow: 1;
+}
+
+
+.right {
+  text-align: right;
+}
+
+.center-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.header-container {
+  background: url('../images/fundo.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.main-header {
+  width: 100%;
+  top: 0;
+}
+
+.sidebar {
+  width: 20px;
+  height: 100%;
+}
+
+.navbar {
+  height: 90px;
+  width: inherit;
+  padding: 0 50px;
+  color: #000;
+  background-color: #fff;
+}
+
+.navigation-nav {
+  flex-grow: 1;
+}
+
+.navigation-side {
+  position: absolute;
+  left: 0;
+  top: 80px; 
+  flex-grow: 1;
+  flex-direction: column;
+  display: flex;
+  width: 15%;
+  height: 100%;
+  background-color: #f2f2f2;
+}
+
+.title {
+  font-size: inherit;
+  font-weight: 100;
+}
+
+.link {
+  font-size: 1.5em;
+  color: #000;
+  text-decoration: none;
+  margin-top: 10px;
+  padding: 10px;
+  flex-direction: column;
+}
+
+.icon {
+  text-decoration: none;
+  margin: 10px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.icon-size-2 {
+  font-size: 2em;
+}
+
+.button-clear {
+  border: none;
+}
+
+:focus {
+  outline: none;
+}
+
+/* Font-colors */
+.font-red {
+  color: #bd2a32; 
+}
+
+.font-blue {
+  color: #80d8e6; 
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 15px;
+  color: #fff;
+  margin: 20px 0;
+  align-self: flex-start;
+  font-size: 1em; 
+}
+
+.btn-primary {
+  background-color: #5fcac6;
+}
+
+.btn-warning {
+  background-color: #cac15f;
+}
+
+.sidebar-title {
+  font-size: 18px;
+  text-align: center;
+}
+
+.divMunicipios {
+  flex-direction: column;
+}
+
+.divCadastros {
+  margin-left: 150px;
+}
+
+.titulos {
+  margin-left: 15px;
+}
+
+.divHeader {
+  width: inherit; 
+  padding: 0 50px;
+  height: 90px;
+  background-color: #f2f2f2;
+}
+
+.btnSair {
+  height: 25px;
+  width: 50px;
+  float: right;
+  margin-top: 20px;
+  margin-right: 50px;
+}
+
+.imgMenu {
+  height: 20px;
+  width: 40px;
+}
+
+.divPrazo {
+  margin-top: 5px;
+}
+
+.selected {
+  background-color: #fff;  
+}
+
+.vTextosInicio {
+  flex-direction: column;
+  margin: 5% 15% 5% 15%;
+  flex: auto;
+}
+
+.vTextosInicio2 {
+  flex-direction: column;
+  margin: 15% 15% 5% 15%;
+  flex: auto;
+}
+
+.vTextosInicio3 {
+  flex-direction: column;
+  margin: 35% 15% 5% 15%;
+  flex: auto;
+}
+
+.imagesInicio {
+  height: 45rem;    
+  float: left;
+  margin-right: 30px;
+  
+}
+
+.imagesInicio2 {
+  height: 45rem;    
+  float: right;
+  margin-right: 30px;
+}
+
+.textosInicio {
+  margin-top: 25px;
+  margin-left: 25px;
+  text-align: justify; 
+  font-size: 16px;
+  line-height: 30px;    
+}
+
+.divTexto {
+  width: 85%;
+  margin-left: 200px;    
+}
+
+.divTexto2 {
+  width: 60%;
+  margin-left: -30px;    
+}
+
+.titulo {
+  text-align: center;    
+}
+
+.divGeralInicio {
+  flex-direction: row;
+  flex: auto;
+}
