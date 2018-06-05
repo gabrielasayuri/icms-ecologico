@@ -51,7 +51,7 @@ class Perguntas1 extends Component {
                     <div className="perguntasp flex column">
                         <p className="pergunta">1.1 Que porcentagem de domicílios são atendidos com água tratada/encanada, considerando área urbana e rural?</p>
                         <div className='flex row'>
-                            <input className="medio" value="100%" type="radio" onClick={this.handleSave} name="p1" />
+                            <input className="medio" value="100%" type="radio" name="p1" />
                             <p className="pAlternativas" >76 a 100% 100% </p>
                         </div>
                         <div className='flex row'>

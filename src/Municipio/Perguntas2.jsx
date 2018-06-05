@@ -41,11 +41,11 @@ class Perguntas2 extends Component {
                     <div className="perguntasp flex column">
                         <p className="pergunta">2.1. O município realiza ações relevantes em educação ambiental?</p>
                         <div className='flex row'>
-                            <input className="medio " type="radio" name="p6" />
+                            <input className="medio " type="radio" value="100%" name="p6" />
                             <p className="pAlternativas">Sim, 100%</p>
                         </div>
                         <div className='flex row'>
-                            <input className="medio " type="radio" name="p6" />
+                            <input className="medio " type="radio" value="0%" name="p6" />
                             <p className="pAlternativas">Não, 0%</p>
                         </div>
                     </div>

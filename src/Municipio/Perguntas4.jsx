@@ -42,30 +42,30 @@ class Perguntas4 extends Component {
                     <div className="perguntasp flex column">
                         <p className="pergunta">4.1. O município possui algum tipo de ordenamento territorial?</p>
                         <div className='flex row'>
-                            <input className="medio " type="radio" name="p23" />
+                            <input className="medio " type="radio" value="100%" name="p23" />
                             <p className="pAlternativas">Sim, 100% </p>
                         </div>
                         <div className='flex row'>
-                            <input className="medio " type="radio" name="p23" />
+                            <input className="medio " type="radio" value="0%" name="p23" />
                             <p className="pAlternativas">Não, 0%</p>
                         </div>
                     </div>
                     <div className="perguntas flex column">
                         <p className="pergunta">Que tipo?</p>
                         <div className='flex row'>
-                            <input className="medio " type="radio" name="p24" />
+                            <input className="medio " type="radio" value="1" name="p24" />
                             <p className="pAlternativas">Plano Diretor </p>
                         </div>
                         <div className='flex row'>
-                            <input className="medio " type="radio" name="p24" />
+                            <input className="medio " type="radio" value="2" name="p24" />
                             <p className="pAlternativas">Zoneamento </p>
                         </div>
                         <div className='flex row'>
-                            <input className="medio " type="radio" name="p24" />
+                            <input className="medio " type="radio" value="3" name="p24" />
                             <p className="pAlternativas">Plano de Uso e Ocupação do Solo </p>
                         </div>
                         <div className='flex row'>
-                            <input className="medio " type="radio" name="p24" />
+                            <input className="medio " type="radio" value="4" name="p24" />
                             <p className="pAlternativas">Outros </p>
                         </div>
                     </div>
@@ -73,11 +73,11 @@ class Perguntas4 extends Component {
                     <div className="perguntas flex column">
                         <p className="pergunta">4.2. Existem viveiros de espécies vegetais nativas no município visando a recuperação de áreas degradadas e ações de educação ambiental? </p>
                         <div className='flex row'>
-                            <input className="medio " type="radio" name="25" />
+                            <input className="medio " type="radio" value="100%" name="25" />
                             <p className="pAlternativas">Sim, 100% </p>
                         </div>
                         <div className='flex row'>
-                            <input className="medio " type="radio" name="25" />
+                            <input className="medio " type="radio" value="0%" name="25" />
                             <p className="pAlternativas">Não, 0%</p>
                         </div>
                     </div>
