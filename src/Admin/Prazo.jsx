@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 
 import '../CSS/municipio.css'
 import { base } from '../base'

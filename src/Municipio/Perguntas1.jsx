@@ -12,16 +12,31 @@ class Perguntas1 extends Component {
     }
 
     //Salvar no banco
-    handleSave = () => {
-        /*var pergunta1 = document.getElementsByClassName("p1")
-        var pergunta2 = document.getElementsByClassName("p2")
-        var pergunta3 = document.getElementByClassName("p3").value
-        var pergunta4 = document.getElementsByClassName("p4")
-        var pergunta5 = document.getElementByClassName("p5").value
+    handleSave = (event) => {
+        event.preventDefault()
+        /*const p2 = window.document.getElementsByName("p1")
+        const p3 = window.document.getElementsByName("p2")
+        //var pergunta3 = document.getElementByName("p3").value
+        const p5 = window.document.getElementsByName("p4")
+        //var pergunta5 = document.getElementByName("p5").value*/
 
-        for(var i = 0;i<pergunta1.length;i++){
-            console.log("oi")
-        }*/
+        const x = window.document.getElementsByClassName('medio')
+
+        console.log(x)
+
+        const obj = {}
+
+        for(let i = 0; i < x.length; i++){
+            
+            if ( x[i].checked===true ) {
+                
+                console.log(x[i].value)
+
+                obj[x[i].name] = x[i].value
+            }
+        }
+
+        //save(obj).base
     } 
     
     proximo() {
@@ -36,19 +51,19 @@ class Perguntas1 extends Component {
                     <div className="perguntasp flex column">
                         <p className="pergunta">1.1 Que porcentagem de domicílios são atendidos com água tratada/encanada, considerando área urbana e rural?</p>
                         <div className='flex row'>
-                            <input className="medio p1" type="radio" name="questao1" />
-                            <p className="pAlternativas">76 a 100% 100% </p>
+                            <input className="medio" value="100%" type="radio" onClick={this.handleSave} name="p1" />
+                            <p className="pAlternativas" >76 a 100% 100% </p>
                         </div>
                         <div className='flex row'>
-                            <input className="medio p1" type="radio" name="questao1" />
+                            <input className="medio" value="67%"type="radio" name="p1" />
                             <p className="pAlternativas">51% a 75% 67% </p>
                         </div>
                         <div className='flex row'>
-                            <input className="medio p1" type="radio" name="questao1" />
+                            <input className="medio" value="33%"type="radio" name="p1" />
                             <p className="pAlternativas">26% a 50 33%</p>
                         </div>
                         <div className='flex row'>
-                            <input className="medio p1" type="radio" name="questao1" />
+                            <input className="medio" value="0%" type="radio" name="p1" />
                             <p className="pAlternativas">0% a 25% 0%</p>
                         </div>
                     </div>
@@ -56,19 +71,19 @@ class Perguntas1 extends Component {
                     <div className="perguntas flex column">
                         <p className="pergunta">1.2. Como é o sistema de esgoto no município?</p>
                         <div className='flex row'>
-                            <input className="medio p2" type="radio" name="questao2" />
+                            <input className="medio " value="1" type="radio" name="p2" />
                             <p className="pAlternativas">tratado </p>
                         </div>
                         <div className='flex row'>
-                            <input className="medio p2" type="radio" name="questao2" />
+                            <input className="medio " value="2" type="radio" name="p2" />
                             <p className="pAlternativas">fossa séptica com sumidouro </p>
                         </div>
                         <div className='flex row'>
-                            <input className="medio p2" type="radio" name="questao2" />
+                            <input className="medio " value="3" type="radio" name="p2" />
                             <p className="pAlternativas">sumidouro (só fossa) </p>
                         </div>
                         <div className='flex row'>
-                            <input className="medio p2" type="radio" name="questao2" />
+                            <input className="medio " value="4" type="radio" name="p2" />
                             <p className="pAlternativas">a céu aberto </p>
                         </div>
                     </div>
@@ -83,15 +98,15 @@ class Perguntas1 extends Component {
                     <div className="perguntas flex column">
                         <p className="pergunta">1.4. Existe ETE? </p>
                         <div className='flex row'>
-                            <input className="medio p4" type="radio" name="questao4" />
+                            <input className="medio " value="100%" type="radio" name="p4" />
                             <p className="pAlternativas">Sim 100% </p>
                         </div>
                         <div className='flex row'>
-                            <input className="medio p4" type="radio" name="questao4" />
+                            <input className="medio " value="50%" type="radio" name="p4" />
                             <p className="pAlternativas">Sim, porém sem operação 50% </p>
                         </div>
                         <div className='flex row'>
-                            <input className="medio p4" type="radio" name="questao4" />
+                            <input className="medio " value="0%" type="radio" name="p4" />
                             <p className="pAlternativas">Não 0%</p>
                         </div>
                     </div>
@@ -104,9 +119,9 @@ class Perguntas1 extends Component {
                     </div>
 
                     <button className="button" onClick={this.proximo}>
-                        <button className="linkProximo" onClick={this.handleSave()}>
+                        <a className="linkProximo" >
                             Próximo
-                        </button>
+                        </a>
                     </button>
 
                 </div>
