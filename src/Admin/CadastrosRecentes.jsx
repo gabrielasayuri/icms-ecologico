@@ -11,7 +11,7 @@ class CadastrosRecentes extends Component {
     super(props)
 
     this.state = {
-      municipios: {},
+      municipios: [],
       key: null,
       search: ''
     }
@@ -24,7 +24,7 @@ class CadastrosRecentes extends Component {
 
  componentDidMount() {
    
-  this.ref = base.syncState('Município', {
+  this.ref = base.syncState('municipios', {
       context: this,
       state: 'municipios',
       asArray: true,
@@ -35,7 +35,7 @@ class CadastrosRecentes extends Component {
   }
 
   handleRemove(key) {
-    this.ref = base.remove('Município/' + this.state.municipios[key].key)
+    this.ref = base.remove('municipios/' + this.state.municipios[key].key)
       .then(() => {
         console.log('Sucesso')
       })
@@ -48,8 +48,7 @@ class CadastrosRecentes extends Component {
     return (
       <div key={key} className='flex row card center-center'>
         <div className='grow-1'>
-          <Link to={`/admin/municipio/${this.state.municipios[key].email}`}><p className='card-title'>{municipio.email}</p></Link>}
-          <p className='card-subtitle'>{municipio.email}</p>
+          <p className='card-title'>{municipio.nome}</p>
           <button onClick={() => this.handleRemove(key)}>Excluir</button>
           <button onClick={() => this.getThisItem(key)}>Editar</button>
         </div>
@@ -110,7 +109,7 @@ class CadastrosRecentes extends Component {
     return (
       <div className='flex row'>
         <div onSubmit={this.handleSave} className='flex column vertical-align-row form-wrapper'>
-          <CreateUser />
+          
         </div>
 
         <div className='flex column vertical-align-row list-wrapper'>

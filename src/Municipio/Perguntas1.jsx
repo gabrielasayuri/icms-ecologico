@@ -14,17 +14,19 @@ class Perguntas1 extends Component {
     //Salvar no banco
     handleSave = (event) => {
         event.preventDefault()
-        /*const p2 = window.document.getElementsByName("p1")
-        const p3 = window.document.getElementsByName("p2")
-        //var pergunta3 = document.getElementByName("p3").value
-        const p5 = window.document.getElementsByName("p4")
-        //var pergunta5 = document.getElementByName("p5").value*/
+
+        const p3 = this.p3.value
+        const p5 = this.p5.value
 
         const x = window.document.getElementsByClassName('medio')
+        var user = auth.currentUser;
 
-        console.log(x)
+        console.log(user.uid)
 
-        const obj = {}
+        const obj = {
+            p3,
+            p5
+        }
 
         for(let i = 0; i < x.length; i++){
             
@@ -35,8 +37,22 @@ class Perguntas1 extends Component {
                 obj[x[i].name] = x[i].value
             }
         }
-
-        //save(obj).base
+        
+        user.uid ?
+      base.update('Questionario/' + user.uid, {
+        data: obj
+      }).catch(error => {
+        console.log(error)
+      })
+      :
+      base.push('Questionario', {
+        data: {
+          obj
+        }
+      }).then(() => {
+      }).catch(error => {
+        console.log(error)
+      })
     } 
     
     proximo() {
@@ -91,7 +107,7 @@ class Perguntas1 extends Component {
                     <div className="perguntas flex column">
                         <p className="pergunta">Quantos metros de rede já estão instalados?  </p>
                         <div className='flex row'>
-                            <input className="p3" type="text" refValue={ref => this.q3 = ref} idValue='q3' />
+                            <input type="text" ref={ref => this.p3 = ref} id='p3' />
                         </div>
                     </div>
 
@@ -114,12 +130,12 @@ class Perguntas1 extends Component {
                     <div className="perguntas flex column">
                         <p className="pergunta">1.5. Qual o destino do esgoto coletado e tratado? O local (córrego, rio) em que está sendo despejado o esgoto tratado </p>
                         <div className='flex row'>
-                            <input className="p5" type="text" name="questao5" />
+                            <input ref={ref => this.p5 = ref} id='p5' type="text" />
                         </div>
                     </div>
 
                     <button className="button" onClick={this.proximo}>
-                        <a className="linkProximo" >
+                        <a className="linkProximo" /*href="/questionario/educacao-ambiental"*/>
                             Próximo
                         </a>
                     </button>

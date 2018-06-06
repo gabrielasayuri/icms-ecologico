@@ -19,7 +19,7 @@ class CreateUser extends Component {
     base.syncState('municipios', {
       context: this,
       state: 'municipios',
-      asArray: true,
+      asArray: true, 
       queries: {
         orderByChild: 'nome_razao',
       }

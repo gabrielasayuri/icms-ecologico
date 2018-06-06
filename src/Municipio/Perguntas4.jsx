@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import  {base, auth} from '../base'
 import Header from '../Header'
 import SidebarQuest from './SidebarQuest'
 import '../CSS/Questionario.css'
@@ -8,27 +9,39 @@ class Perguntas4 extends Component {
     //Salvar no banco
     handleSave = (event) => {
         event.preventDefault()
-        /*const x = window.document.getElementsByName("p")
-        var pergunta23 = document.getElementsByName("p24")
-        var pergunta25 = document.getElementsByName("p25")*/
 
         const x = window.document.getElementsByClassName('medio')
+        var user = auth.currentUser;
 
-        console.log(x)
+        console.log(user.uid)
 
-        const obj = {}
+        const obj = { }
 
-        for(let i = 0; i < x.length; i++){
-            
-            if ( x[i].checked===true ) {
-                
+        for (let i = 0; i < x.length; i++) {
+
+            if (x[i].checked === true) {
+
                 console.log(x[i].value)
 
                 obj[x[i].name] = x[i].value
             }
         }
 
-        //save(obj).base
+        user.uid ?
+            base.update('Questionario/' + user.uid, {
+                data: obj
+            }).catch(error => {
+                console.log(error)
+            })
+            :
+            base.push('Questionario', {
+                data: {
+                    obj
+                }
+            }).then(() => {
+            }).catch(error => {
+                console.log(error)
+            })
     }
 
     render() {
@@ -36,7 +49,7 @@ class Perguntas4 extends Component {
         <div>
          <Header />
          <SidebarQuest />
-            <div className="flex row quest">
+         <form className="flex row quest" onSubmit={this.handleSave}>
                 <div className="flex column">
                     <h1>Questionário</h1>
                     <div className="perguntasp flex column">
@@ -73,11 +86,11 @@ class Perguntas4 extends Component {
                     <div className="perguntas flex column">
                         <p className="pergunta">4.2. Existem viveiros de espécies vegetais nativas no município visando a recuperação de áreas degradadas e ações de educação ambiental? </p>
                         <div className='flex row'>
-                            <input className="medio " type="radio" value="100%" name="25" />
+                            <input className="medio " type="radio" value="100%" name="p25" />
                             <p className="pAlternativas">Sim, 100% </p>
                         </div>
                         <div className='flex row'>
-                            <input className="medio " type="radio" value="0%" name="25" />
+                            <input className="medio " type="radio" value="0%" name="p25" />
                             <p className="pAlternativas">Não, 0%</p>
                         </div>
                     </div>
@@ -89,7 +102,7 @@ class Perguntas4 extends Component {
                     </button>
 
                 </div>
-            </div>
+            </form>
             </div>
         )
     }
