@@ -8,7 +8,7 @@ const Navbar = () => {
       <nav className='navbar flex row vertical-align-row'>
         <NavLink to='/' exact={true} className={`link`}>
           <div className='brand'>
-            <h1>ICMS<span className='title'>Ecológico</span></h1>
+            <h4>ICMS<span className='title'>Ecológico</span></h4>
             <h5>MATO GROSSO DO SUL</h5>
           </div>
         </NavLink>

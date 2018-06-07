@@ -49,8 +49,8 @@ class CadastrosRecentes extends Component {
       <div key={key} className='flex row card center-center'>
         <div className='grow-1'>
           <p className='card-title'>{municipio.nome}</p>
-          <button onClick={() => this.handleRemove(key)}>Excluir</button>
-          <button onClick={() => this.getThisItem(key)}>Editar</button>
+            <button className="btn" onClick={() => this.handleRemove(key)}>Excluir</button>
+            <button className="btn" onClick={() => this.getThisItem(key)}>Editar</button>
         </div>
       </div>
     )
