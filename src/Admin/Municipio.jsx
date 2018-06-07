@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router-dom'
 import { auth } from '../base'
 
 import AdminCadastros from './AdminCadastros'
+import Analise from './Analise'
 import CadastrosRecentes from './CadastrosRecentes'
 import Sidebar from '../Sidebar'
 import Header from '../Header'
@@ -51,6 +52,7 @@ class Municipio extends Component {
         <div className={"divCadastros"}> 
           <CadastrosRecentes />
         </div>
+        <Route path={ `${this.props.match.url}/analises`} component={ Analise } />
         <Route path={ `${this.props.match.url}/questionario`} component={ Questionario } />
         <Route path={ `${this.props.match.url}/cadastros`} component={ AdminCadastros } />
       </div>

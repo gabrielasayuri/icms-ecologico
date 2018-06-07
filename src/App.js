@@ -31,6 +31,7 @@ class App extends Component {
             <Route path='/admin' component={AdminPage} />
             <Route path='/municipio' component={Municipio} />
             <Route path='/prazo' component={CadastroPrazo} />
+            <Route path='/analises' component={Analise} />
             <Route path='/questionario/tipo-questionario' component={TipoQuest} />
             <Route path='/questionario/qualidade-de-vida' component={Questionario} />
             <Route path='/questionario/educacao-ambiental' component={Perguntas2} />

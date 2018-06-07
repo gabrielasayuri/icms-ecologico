@@ -46,13 +46,11 @@ class CadastrosRecentes extends Component {
 
   listItem(key, municipio) {
     return (
-      <div key={key} className='flex row card center-center'>
-        <div className='grow-1'>
+      <div key={key} className='card'>
           <p className='card-title'>{municipio.nome}</p>
           <button onClick={() => this.handleRemove(key)}>Excluir</button>
           <button onClick={() => this.getThisItem(key)}>Editar</button>
         </div>
-      </div>
     )
   }
 
@@ -108,8 +106,8 @@ class CadastrosRecentes extends Component {
   render() {
     return (
       <div className='flex row'>
-        <div onSubmit={this.handleSave} className='flex column vertical-align-row form-wrapper'>
-          
+        <div className='flex column vertical-align-row form-wrapper'>
+          <CreateUser/> 
         </div>
 
         <div className='flex column vertical-align-row list-wrapper'>

@@ -46,11 +46,10 @@ class AdminPage extends Component {
       return <Redirect to='/questionario/qualidade-de-vida' />
     }
     return (
-      <div>        
-        <Route exact path={ `${this.props.match.url}/analises`} component={ Analise } />
-        
+      <div>
+        <Route path={ `${this.props.match.url}/analises`} component={ Analise } />
+        <Route path={ `${this.props.match.url}/questionario`} component={ Questionario } />
         <Route path={ `${this.props.match.url}/cadastros`} component={ AdminCadastros } />
-        
       </div>
     )
   }

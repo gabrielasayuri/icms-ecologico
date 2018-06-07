@@ -8,7 +8,7 @@ class Sidebar extends Component {
     render() {
         return (
             <div className="navigation-side">        
-                <NavLink to='/admin' className={`link`} activeClassName="selected" activeStyle={{ fontWeight: 'bold' }}>  
+                <NavLink to='/admin/analises' className={`link`} activeClassName="selected" activeStyle={{ fontWeight: 'bold' }}>  
                     <img className="imgMenu" src={require('./images/analise.svg')} /> 
                     <span className="sidebar-title">Análises</span>
                 </NavLink>
