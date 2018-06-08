@@ -8,9 +8,6 @@ class SidebarQuest extends Component {
   render() {
     return (
       <div className="navigation-side">
-        <NavLink to='/questionario/tipo-questionario' className={`link`} activeClassName="selected" activeStyle={{ fontWeight: 'bold' }}>
-          <span className="sidebar-title">Tipo de Questionário</span>
-        </NavLink>
         <NavLink to='/questionario/qualidade-de-vida' className={`link`} activeClassName="selected" activeStyle={{ fontWeight: 'bold' }}>
           <span className="sidebar-title">Qualidade de Vida</span>
         </NavLink>

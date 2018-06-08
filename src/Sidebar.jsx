@@ -14,7 +14,7 @@ class Sidebar extends Component {
                 </NavLink>
                 <NavLink to='/prazo' className={`link`} activeClassName="selected" activeStyle={{ fontWeight: 'bold' }}>
                     <img className="imgMenu" src={require('./images/prazo.svg')} />
-                    <span className="sidebar-title">Prazo</span>
+                    <span className="sidebar-title"></span>
                 </NavLink>
                 <NavLink to='/municipio' className={`link`} activeClassName="selected" activeStyle={{ fontWeight: 'bold' }}>
                     <img className="imgMenu" src={require('./images/municipio.svg')} />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { base, auth } from '../base'
-import Header from '../Header'
+import Header from './Header'
 import SidebarQuest from './SidebarQuest'
 import '../CSS/Questionario.css'
 
@@ -89,17 +89,17 @@ class Perguntas2 extends Component {
             <div>
                 <Header />
                 <SidebarQuest />
-                <form className="flex row quest" onSubmit={this.handleSave}>
+                <form className="flex row1 quest" onSubmit={this.handleSave}>
                     <div className="flex column">
                         {/*<progress id='progress' max='100' value='0'></progress>*/}
                         <h1>Questionário</h1>
                         <div className="perguntasp flex column">
                             <p className="pergunta">2.1. O município realiza ações relevantes em educação ambiental?</p>
-                            <div className='flex row'>
+                            <div className='flex row1'>
                                 <input className="medio " type="radio" value="100%" name="p6" />
                                 <p className="pAlternativas">Sim, 100%</p>
                             </div>
-                            <div className='flex row'>
+                            <div className='flex row1'>
                                 <input className="medio " type="radio" value="0%" name="p6" />
                                 <p className="pAlternativas">Não, 0%</p>
                             </div>
@@ -107,7 +107,7 @@ class Perguntas2 extends Component {
 
                         <div className="perguntas flex column">
                             <p className="pergunta">Quais?</p>
-                            <div className='flex row'>
+                            <div className='flex row1'>
                                 <input ref={ref => this.p7 = ref} id='p7' type="text" />
                             </div>
                         </div>

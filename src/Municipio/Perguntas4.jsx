@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import  {base, auth} from '../base'
-import Header from '../Header'
+import Header from './Header'
 import SidebarQuest from './SidebarQuest'
 import '../CSS/Questionario.css'
 
@@ -49,35 +49,35 @@ class Perguntas4 extends Component {
         <div>
          <Header />
          <SidebarQuest />
-         <form className="flex row quest" onSubmit={this.handleSave}>
+         <form className="flex row1 quest" onSubmit={this.handleSave}>
                 <div className="flex column">
                     <h1>Questionário</h1>
                     <div className="perguntasp flex column">
                         <p className="pergunta">4.1. O município possui algum tipo de ordenamento territorial?</p>
-                        <div className='flex row'>
+                        <div className='flex row1'>
                             <input className="medio " type="radio" value="100%" name="p23" />
                             <p className="pAlternativas">Sim, 100% </p>
                         </div>
-                        <div className='flex row'>
+                        <div className='flex row1'>
                             <input className="medio " type="radio" value="0%" name="p23" />
                             <p className="pAlternativas">Não, 0%</p>
                         </div>
                     </div>
                     <div className="perguntas flex column">
                         <p className="pergunta">Que tipo?</p>
-                        <div className='flex row'>
+                        <div className='flex row1'>
                             <input className="medio " type="radio" value="1" name="p24" />
                             <p className="pAlternativas">Plano Diretor </p>
                         </div>
-                        <div className='flex row'>
+                        <div className='flex row1'>
                             <input className="medio " type="radio" value="2" name="p24" />
                             <p className="pAlternativas">Zoneamento </p>
                         </div>
-                        <div className='flex row'>
+                        <div className='flex row1'>
                             <input className="medio " type="radio" value="3" name="p24" />
                             <p className="pAlternativas">Plano de Uso e Ocupação do Solo </p>
                         </div>
-                        <div className='flex row'>
+                        <div className='flex row1'>
                             <input className="medio " type="radio" value="4" name="p24" />
                             <p className="pAlternativas">Outros </p>
                         </div>
@@ -85,11 +85,11 @@ class Perguntas4 extends Component {
 
                     <div className="perguntas flex column">
                         <p className="pergunta">4.2. Existem viveiros de espécies vegetais nativas no município visando a recuperação de áreas degradadas e ações de educação ambiental? </p>
-                        <div className='flex row'>
+                        <div className='flex row1'>
                             <input className="medio " type="radio" value="100%" name="p25" />
                             <p className="pAlternativas">Sim, 100% </p>
                         </div>
-                        <div className='flex row'>
+                        <div className='flex row1'>
                             <input className="medio " type="radio" value="0%" name="p25" />
                             <p className="pAlternativas">Não, 0%</p>
                         </div>

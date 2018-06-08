@@ -68,9 +68,13 @@ class LoginPage extends Component {
         <div className='header-container flex row center-center full-view' >
           <form onSubmit={this.handleClick} className="login-wrapper login flex column justify-center">
             
-              <div className='brand-login'>
+              {/*<div className='brand-login'>
                 <h1>ICMS<span className='title'>Ecológico</span></h1>
                 <h5>MATO GROSSO DO SUL</h5>
+              </div>*/}
+
+              <div className="brand-login">
+                <i class="large account-circle">user</i>
               </div>
               
               <InputField refValue={ref => this.email = ref} idValue='email' typeValue='text' requiredValue={ true } labelText='E-mail'/>

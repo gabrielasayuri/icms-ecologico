@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Sidebar from '../Sidebar'
 import Prazo from './Prazo'
-import Header from '../Header'
+import Header from '../Municipio/Header'
 
 class CadastroPrazo extends Component {
     render() {

@@ -6,7 +6,7 @@ import AdminCadastros from './AdminCadastros'
 import Analise from './Analise'
 import CadastrosRecentes from './CadastrosRecentes'
 import Sidebar from '../Sidebar'
-import Header from '../Header'
+import Header from '../Municipio/Header'
 import Questionario from '../Municipio/Questionario'
 
 class Municipio extends Component {

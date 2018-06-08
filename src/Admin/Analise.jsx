@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom'
 
 import { auth } from '../base'
 import Sidebar from '../Sidebar';
-import Header from '../Header';
+import Header from '../Municipio/Header';
 
 class AdminPage extends Component {
 
@@ -27,6 +27,7 @@ class AdminPage extends Component {
       <div>
         <Header />
         <Sidebar />
+        <div className="flex row1 analise">
         <div className="card-analise">
           <div className="container">
             <h4><b>Nova Andradina</b></h4> 
@@ -62,7 +63,9 @@ class AdminPage extends Component {
             </div>  
           </div>
         </div>
+        </div>
 
+      <div className="flex row1 analise">
         <div className="card-analise">
           <div className="container">
             <h4><b>Bataguassu</b></h4> 
@@ -70,6 +73,8 @@ class AdminPage extends Component {
               <div id="barra"></div>
             </div> 
           </div>
+        </div>
+
         </div>
 
       </div>

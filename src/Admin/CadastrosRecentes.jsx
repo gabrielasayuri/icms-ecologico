@@ -12,12 +12,10 @@ class CadastrosRecentes extends Component {
 
     this.state = {
       municipios: [],
-      key: null,
-      search: ''
+      key: null
     }
 
     this.listItem = this.listItem.bind(this)
-    this.handleRemove = this.handleRemove.bind(this)
     this.handleSave = this.handleSave.bind(this)
     
   }
@@ -34,22 +32,12 @@ class CadastrosRecentes extends Component {
     })
   }
 
-  handleRemove(key) {
-    this.ref = base.remove('municipios/' + this.state.municipios[key].key)
-      .then(() => {
-        console.log('Sucesso')
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
-
   listItem(key, municipio) {
     return (
       <div key={key} className='card'>
           <p className='card-title'>{municipio.nome}</p>
-          <button onClick={() => this.handleRemove(key)}>Excluir</button>
-          <button onClick={() => this.getThisItem(key)}>Editar</button>
+          <p className='card-subtitle'>{municipio.nome}</p>
+          <button className="btn" onClick={() => this.getThisItem(key)}>Editar</button>
         </div>
     )
   }

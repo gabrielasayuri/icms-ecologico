@@ -126,7 +126,7 @@ class CreateUser extends Component {
           labelText='Área total do município de interface'
           spanWidth='220px' />
           
-        <button type='submit'>Salvar dados do município</button>
+        <button type='submit' className="button-create" >Salvar dados do município</button>
       </form>
     )
   }

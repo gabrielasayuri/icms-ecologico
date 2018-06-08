@@ -32,12 +32,23 @@
 .button {
     margin-top: 40px;
     border: none;
-    background: #00CB83;
+    background: #2bbbad;
     color: #fff;
     height: 40px;
     width: 80px;
     font-size: 17px;
-  }
+}
+
+.button-create {
+    margin-top: 15px;
+    margin-left: 16%;
+    border: none;
+    background: #2bbbad;
+    color: #fff;
+    height: 40px;
+    width: 150px;
+    font-size: 15px;
+}
 
 .pAlternativas {
     margin-top: 22px;
