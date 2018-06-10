@@ -144,7 +144,7 @@
 }
 
 .btn-primary {
-  background-color: #5fcac6;
+  background-color: #000000;
 }
 
 .btn-warning {
@@ -181,8 +181,19 @@
   float: right;
   margin-right: 50px;
   border: none;
-  background: #2bbbad;
+  background: #000;
   color: #fff;
+}
+
+.button-create {
+  margin-top: 15px;
+  margin-left: 16%;
+  border: none;
+  background: #000;
+  color: #fff;
+  height: 40px;
+  width: 150px;
+  font-size: 15px;
 }
 
 .imgMenu {
@@ -447,7 +458,7 @@ span.badge.new {
   font-weight: 300;
   font-size: 0.8rem;
   color: #fff;
-  background-color: #26a69a;
+  background-color: #000;
   border-radius: 2px;
 }
 
@@ -1373,13 +1384,13 @@ span.badge[data-badge-caption]::after {
 
 .btn:focus, .btn-large:focus,
 .btn-floating:focus {
-  background-color: #1d7d74;
+  background-color: #000;
 }
 
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #26a69a;
+  background-color: #000000;
   text-align: center;
   letter-spacing: .5px;
   -webkit-transition: .2s ease-out;
@@ -1388,7 +1399,7 @@ span.badge[data-badge-caption]::after {
 }
 
 .btn:hover, .btn-large:hover {
-  background-color: #2bbbad;
+  background-color: #000;
 }
 
 .btn-floating {
@@ -1401,7 +1412,7 @@ span.badge[data-badge-caption]::after {
   height: 40px;
   line-height: 40px;
   padding: 0;
-  background-color: #26a69a;
+  background-color: #000;
   border-radius: 50%;
   -webkit-transition: .3s;
   transition: .3s;
@@ -1410,7 +1421,7 @@ span.badge[data-badge-caption]::after {
 }
 
 .btn-floating:hover {
-  background-color: #26a69a;
+  background-color: #000;
 }
 
 .btn-floating:before {
@@ -1562,7 +1573,7 @@ button.btn-floating {
   z-index: -1;
   width: 40px;
   height: 40px;
-  background-color: #26a69a;
+  background-color: #000;
   border-radius: 50%;
   -webkit-transform: scale(0);
           transform: scale(0);
