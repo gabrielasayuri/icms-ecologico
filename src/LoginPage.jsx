@@ -20,8 +20,8 @@ class LoginPage extends Component {
       rota: ''
     }
 
-    this.removeAuth = auth.onAuthStateChanged( user => {
-      if( user ) {
+    this.removeAuth = auth.onAuthStateChanged(user => {
+      if (user) {
         this.setState({
           isLoggedIn: true
         })
@@ -42,7 +42,7 @@ class LoginPage extends Component {
             isLoggedIn: true,
             rota: '/admin/analises'
           })
-        :
+          :
           this.setState({
             isLoggedIn: true,
             rota: '/questionario/qualidade-de-vida'
@@ -67,24 +67,24 @@ class LoginPage extends Component {
         <Navbar />
         <div className='header-container flex row center-center full-view' >
           <form onSubmit={this.handleClick} className="login-wrapper login flex column justify-center">
-            
-              {/*<div className='brand-login'>
+
+            {/*<div className='brand-login'>
                 <h1>ICMS<span className='title'>Ecológico</span></h1>
                 <h5>MATO GROSSO DO SUL</h5>
               </div>*/}
 
-              <div className="brand-login">
-                <i class="large account-circle">user</i>
-              </div>
-              
-              <InputField refValue={ref => this.email = ref} idValue='email' typeValue='text' requiredValue={ true } labelText='E-mail'/>
-              
-              <InputField refValue={ref => this.passwd = ref} idValue='pass' typeValue='password' requiredValue={ true } labelText='Senha'/>
+            <div className="brand-login">
+              <img className="user" src={require('./images/user-preto.svg')} />
+            </div>
 
-              {this.state.error && <p>Usuário e/ou senha inválido(s)!</p>}
+            <InputField refValue={ref => this.email = ref} idValue='email' typeValue='text' requiredValue={true} labelText='E-mail' />
 
-              <button className='button-loggout' disabled={ this.state.isLogging } type='submit'>Acessar</button>
-            
+            <InputField refValue={ref => this.passwd = ref} idValue='pass' typeValue='password' requiredValue={true} labelText='Senha' />
+
+            {this.state.error && <p>Usuário e/ou senha inválido(s)!</p>}
+
+            <button className='button-loggout' disabled={this.state.isLogging} type='submit'>Acessar</button>
+
           </form>
         </div>
       </div>

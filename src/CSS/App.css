@@ -289,6 +289,21 @@
   margin-right: 5%;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+.container-captcha {
+  max-width: 300px;
+  background: #ccc;
+  padding: 20px;
+}
+
+.g-recaptcha {
+  transform-origin: left top;
+  -webkit-transform-origin: left top;
+}
+
 /*MATERIALIZE*/
 /*!
  * Materialize v0.100.2 (http://materializecss.com)

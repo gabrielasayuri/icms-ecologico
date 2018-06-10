@@ -15,8 +15,6 @@ import Perguntas3 from './Municipio/Perguntas3'
 import Perguntas4 from './Municipio/Perguntas4'
 import Analise from './Admin/Analise'
 import AdminCadastros from './Admin/AdminCadastros'
-import TipoQuest from './Municipio/TipoQuest'
-
 
 class App extends Component {
   render() {
@@ -32,7 +30,6 @@ class App extends Component {
             <Route path='/municipio' component={Municipio} />
             <Route path='/prazo' component={CadastroPrazo} />
             <Route path='/analises' component={Analise} />
-            <Route path='/questionario/tipo-questionario' component={TipoQuest} />
             <Route path='/questionario/qualidade-de-vida' component={Questionario} />
             <Route path='/questionario/educacao-ambiental' component={Perguntas2} />
             <Route path='/questionario/poder-publico-pela-uc' component={Perguntas3} />
