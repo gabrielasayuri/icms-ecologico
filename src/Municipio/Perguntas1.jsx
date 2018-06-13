@@ -46,15 +46,23 @@ class Perguntas1 extends Component {
         user.uid ?
             base.update('Questionario/' + user.uid, {
                 data: obj,
-                salvo: true
+                then: () => {
+                    this.setState({
+                        salvo: true
+                    })
+                }
             }).catch(error => {
                 console.log(error)
             })
             :
-            base.push('Questionario', {
+            base.push('Questionario' + user.uid, {
                 data: {
                     obj,
-                    salvo: true
+                    then: () => {
+                        this.setState({
+                            salvo: true
+                        })
+                    }
                 }
             }).then(() => {
             }).catch(error => {
@@ -63,10 +71,6 @@ class Perguntas1 extends Component {
 
         
     }
-
-    /*proximo() {
-        <NavLink to="/Perguntas2">About</NavLink>
-    }*/
 
     render() {
 
@@ -148,7 +152,7 @@ class Perguntas1 extends Component {
                         </div>
                     </div>
 
-                    <button className='button' disabled={this.state.rota} type='submit'>Próximo</button>
+                    <button className='button' /*disabled={this.state.rota}*/ type='submit'>Próximo</button>
 
                 </div>
             </form>

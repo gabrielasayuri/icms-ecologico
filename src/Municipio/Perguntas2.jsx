@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import { base, auth } from '../base'
 import Header from './Header'
 import SidebarQuest from './SidebarQuest'
@@ -6,6 +7,17 @@ import '../CSS/Questionario.css'
 
 
 class Perguntas2 extends Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            progresso: 0,
+            rota: '/questionario/poder-publico-pela-uc',
+            salvo: false
+        }
+    }
+
     //Salvar no banco
     handleSave = (event) => {
         event.preventDefault()
@@ -14,8 +26,6 @@ class Perguntas2 extends Component {
 
         const x = window.document.getElementsByClassName('medio')
         var user = auth.currentUser;
-
-        console.log(user.uid)
 
         const obj = {
             p7
@@ -28,19 +38,49 @@ class Perguntas2 extends Component {
                 console.log(x[i].value)
 
                 obj[x[i].name] = x[i].value
+           
             }
+
+            user.uid ?
+                base.update('progressos/' + user.uid, {
+                    then: () => {
+                        this.setState({
+                            progresso: this.state.progresso++
+                        })
+                    }
+                })
+                :
+                base.push('progressos', {
+                    then: () => {
+                        this.setState({
+                            progresso: this.state.progresso++
+                        })
+                    }
+                })
         }
 
         user.uid ?
             base.update('Questionario/' + user.uid, {
-                data: obj
+                data: { 
+                    obj,
+                    then: () => {
+                    this.setState({
+                        salvo: true
+                    })
+                    }
+                }
             }).catch(error => {
                 console.log(error)
             })
             :
             base.push('Questionario', {
                 data: {
-                    obj
+                    obj,
+                    then: () => {
+                        this.setState({
+                            salvo: true
+                        })
+                    }
                 }
             }).then(() => {
             }).catch(error => {
@@ -48,50 +88,19 @@ class Perguntas2 extends Component {
             })
     }
 
-    /*function() {
-        var progress         = ('#progress'), // Barra de Progresso.
-            progressElements = ('.medio'), // Elementos que devem ser checados
-                                                // para modificar o valor da barra.
-            TOTAL             = progressElements.length; // Total de elementos.
-      
-        
-        progressElements.on('blur, change', function() {
-          
-          // Faz um filtro com o total elementos válidos.
-          // Nesse caso, campos que não estejam "em branco" e que não estejam marcados
-          // como ':invalid'.
-          var valid = progressElements.filter(function() {
-            return ($(this).val() || $(this).prop('checked')) && !$(this).is(':invalid');
-          }).length;
-          
-          // Calcula a porcentagem e altera o valor da barra.
-          var percent = (valid * 100) / TOTAL,
-            current = progress.val();
-          
-          var increase = percent > current;
-              
-          var transition = setInterval(function(){
-            if((increase && current >= percent) ||
-              (!increase && current <= percent))
-                clearInterval(transition);
-            
-            var value = progress.val();
-            value = increase ? value+1 : value-1;
-            current = value;
-            
-            progress.val(current);
-          }, 10);    
-        })
-      }*/
-
     render() {
+        if (this.state.salvo) {
+            return <Redirect to={this.state.rota} />
+        }
         return (
             <div>
                 <Header />
                 <SidebarQuest />
                 <form className="flex row1 quest" onSubmit={this.handleSave}>
                     <div className="flex column">
-                        {/*<progress id='progress' max='100' value='0'></progress>*/}
+                        <progress id="progress" value={this.state.progresso} max='2'>
+                            <div id="barra"></div>
+                        </progress>
                         <h1>Questionário</h1>
                         <div className="perguntasp flex column">
                             <p className="pergunta">2.1. O município realiza ações relevantes em educação ambiental?</p>
@@ -112,11 +121,7 @@ class Perguntas2 extends Component {
                             </div>
                         </div>
 
-                        <button className="button" onClick={this.proximo}>
-                            <a className="linkProximo" /*href="/questionario/poder-publico-pela-uc"*/>
-                                Próximo
-                        </a>
-                        </button>
+                        <button className='button' /*disabled={this.state.rota}*/ type='submit'>Próximo</button>
 
                     </div>
                 </form>

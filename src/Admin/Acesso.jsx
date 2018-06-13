@@ -3,7 +3,6 @@ import { Route, Redirect } from 'react-router-dom'
 
 import { auth } from '../base'
 import Questionario from '../Municipio/Questionario'
-import AdminCadastros from './AdminCadastros'
 import Analise from  './Analise'
 
 class AdminPage extends Component {

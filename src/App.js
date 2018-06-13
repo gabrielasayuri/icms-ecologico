@@ -8,13 +8,11 @@ import LoginPage from './LoginPage'
 import AdminPage from './Admin/AdminPage'
 import Questionario from './Municipio/Questionario'
 import Municipio from './Admin/Municipio'
-import CadastroPrazo from './Admin/CadastroPrazo'
 import Acesso from './Admin/Acesso'
 import Perguntas2 from './Municipio/Perguntas2'
 import Perguntas3 from './Municipio/Perguntas3'
 import Perguntas4 from './Municipio/Perguntas4'
 import Analise from './Admin/Analise'
-import AdminCadastros from './Admin/AdminCadastros'
 
 class App extends Component {
   render() {
@@ -28,7 +26,6 @@ class App extends Component {
             <Route path='/acesso' component={Acesso} />
             <Route path='/admin' component={AdminPage} />
             <Route path='/municipio' component={Municipio} />
-            <Route path='/prazo' component={CadastroPrazo} />
             <Route path='/analises' component={Analise} />
             <Route path='/questionario/qualidade-de-vida' component={Questionario} />
             <Route path='/questionario/educacao-ambiental' component={Perguntas2} />

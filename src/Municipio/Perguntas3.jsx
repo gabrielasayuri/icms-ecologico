@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import { base, auth } from '../base'
 import Header from './Header'
 import SidebarQuest from './SidebarQuest'
@@ -6,6 +7,15 @@ import '../CSS/Questionario.css'
 
 
 class Perguntas3 extends Component {
+    constructor() {
+        super();
+        this.handleSave = this.handleSave.bind(this);
+
+        this.state = {
+            rota: '/questionario/melhoria-ambiental',
+            salvo: false
+        }
+    }
     //Salvar no banco
     handleSave = (event) => {
         event.preventDefault()
@@ -39,14 +49,24 @@ class Perguntas3 extends Component {
 
         user.uid ?
             base.update('Questionario/' + user.uid, {
-                data: obj
+                data: obj,
+                then: () => {
+                    this.setState({
+                        salvo: true
+                    })
+                }
             }).catch(error => {
                 console.log(error)
             })
             :
             base.push('Questionario', {
                 data: {
-                    obj
+                    obj,
+                    then: () => {
+                        this.setState({
+                            salvo: true
+                        })
+                    }
                 }
             }).then(() => {
             }).catch(error => {
@@ -55,6 +75,9 @@ class Perguntas3 extends Component {
     }
 
     render() {
+        if (this.state.salvo) {
+            return <Redirect to={this.state.rota} />
+        }
         return (
             <div>
                 <Header />
@@ -242,11 +265,7 @@ class Perguntas3 extends Component {
                             </div>
                         </div>
 
-                        <button className="button" onClick={this.proximo}>
-                            <a className="linkProximo" /*href="/questionario/melhoria-ambiental"*/>
-                                Próximo
-                        </a>
-                        </button>
+                        <button className='button' /*disabled={this.state.rota}*/ type='submit'>Próximo</button>
 
                     </div>
                 </form>

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
 import { auth } from '../base'
-import AdminCadastros from '../Admin/AdminCadastros'
 import Perguntas1 from './Perguntas1'
 import Header from './Header'
 import SidebarQuest from './SidebarQuest'

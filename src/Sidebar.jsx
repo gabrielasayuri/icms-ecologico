@@ -12,10 +12,6 @@ class Sidebar extends Component {
                     <img className="imgMenu" src={require('./images/analise.svg')} /> 
                     <span className="sidebar-title">Análises</span>
                 </NavLink>
-                <NavLink to='/prazo' className={`link`} activeClassName="selected" activeStyle={{ fontWeight: 'bold' }}>
-                    <img className="imgMenu" src={require('./images/prazo.svg')} />
-                    <span className="sidebar-title"></span>
-                </NavLink>
                 <NavLink to='/municipio' className={`link`} activeClassName="selected" activeStyle={{ fontWeight: 'bold' }}>
                     <img className="imgMenu" src={require('./images/municipio.svg')} />
                     <span className="sidebar-title">Município</span>

@@ -28,7 +28,8 @@ class CadastrosRecentes extends Component {
       state: 'municipios',
       asArray: true,
       queries: {
-        orderByChild: 'nome'
+        orderByChild: 'nome',
+        limitToFirst: 4
       }
     })
   }
@@ -48,8 +49,8 @@ class CadastrosRecentes extends Component {
     this.nome.value = this.state.municipios[key].nome
     this.email.value = this.state.municipios[key].email
     this.senha.value = this.state.municipios[key].senha
-    this.nomeUC.value = this.state.municipios[key].nomeUC
-    this.categM.value = this.state.municipios[key].categM
+    this.cep.value = this.state.municipios[key].cep
+    this.ibge.value = this.state.municipios[key].ibge
     this.nomeInterface.value = this.state.municipios[key].nomeInterface
     this.areaInterface.value = this.state.municipios[key].areaInterface
     this.setState({
@@ -62,8 +63,8 @@ class CadastrosRecentes extends Component {
     const nome = this.nome.value
     const email = this.email.value
     const senha = this.senha.value
-    const nomeUC = this.nomeUC.value
-    const categM = this.categM.value
+    const cep = this.cep.value
+    const ibge = this.ibge.value
     const nomeInterface = this.nomeInterface.value
     const areaInterface = this.areaInterface.value
 
@@ -73,8 +74,8 @@ class CadastrosRecentes extends Component {
           nome,
           email,
           senha,
-          nomeUC,
-          categM,
+          cep,
+          ibge,
           nomeInterface,
           areaInterface
         }
@@ -91,8 +92,8 @@ class CadastrosRecentes extends Component {
           nome,
           email,
           senha,
-          nomeUC,
-          categM,
+          cep,
+          ibge,
           nomeInterface,
           areaInterface
         }
@@ -103,8 +104,8 @@ class CadastrosRecentes extends Component {
     this.nome = ''
     this.email = ''
     this.senha = ''
-    this.nomeUC = ''
-    this.categM = ''
+    this.cep = ''
+    this.ibge = ''
     this.nomeInterface = ''
     this.areaInterface = ''
   }
@@ -145,36 +146,20 @@ class CadastrosRecentes extends Component {
               spanWidth='100px' />
 
             <InputField
-              refValue={ref => this.nomeUC = ref}
-              idValue='nomeUC'
-              typeValue='text'
+              refValue={ref => this.cep = ref}
+              idValue='cep'
+              typeValue='number'
               requiredValue={true}
-              labelText='Nome da UC'
+              labelText='CEP'
               spanWidth='110px' />
 
             <InputField
-              refValue={ref => this.categM = ref}
-              idValue='categM'
+              refValue={ref => this.ibge = ref}
+              idValue='ibge'
               typeValue='text'
               requiredValue={true}
-              labelText='Categoria de Manejo'
+              labelText='Código IBGE'
               spanWidth='110px' />
-
-            <InputField
-              refValue={ref => this.nomeInterface = ref}
-              idValue='nomeInterface'
-              typeValue='text'
-              requiredValue={true}
-              labelText='Nome do município de interface'
-              spanWidth='200px' />
-
-            <InputField
-              refValue={ref => this.areaInterface = ref}
-              idValue='areaInterface'
-              typeValue='text'
-              requiredValue={true}
-              labelText='Área total do município de interface'
-              spanWidth='220px' />
 
             <button type='submit' className="button-create" >Salvar dados do município</button>
 
