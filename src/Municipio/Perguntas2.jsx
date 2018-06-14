@@ -4,6 +4,7 @@ import { base, auth } from '../base'
 import Header from './Header'
 import SidebarQuest from './SidebarQuest'
 import '../CSS/Questionario.css'
+import ProgressBar from '../ProgressBar'
 
 
 class Perguntas2 extends Component {
@@ -22,13 +23,16 @@ class Perguntas2 extends Component {
     handleSave = (event) => {
         event.preventDefault()
 
-        const p7 = this.p7.value
+        const p7 = this.p7.value;
+        var progresso = " "
 
         const x = window.document.getElementsByClassName('medio')
+        const y = window.document.querySelectorAll('input[type=text]')
         var user = auth.currentUser;
 
         const obj = {
-            p7
+            p7,
+            progresso
         }
 
         for (let i = 0; i < x.length; i++) {
@@ -38,47 +42,45 @@ class Perguntas2 extends Component {
                 console.log(x[i].value)
 
                 obj[x[i].name] = x[i].value
-           
+
+                this.setState({
+                    progresso: this.state.progresso++
+                })
+
             }
 
-            user.uid ?
-                base.update('progressos/' + user.uid, {
-                    then: () => {
-                        this.setState({
-                            progresso: this.state.progresso++
-                        })
-                    }
-                })
-                :
-                base.push('progressos', {
-                    then: () => {
-                        this.setState({
-                            progresso: this.state.progresso++
-                        })
-                    }
-                })
+            obj.progresso = this.state.progresso
+
         }
 
+        for (let i = 0; i < y.length; i++) {
+            if (y[i].value != "") {
+                obj.progresso++
+            }
+        }
+
+
+
         user.uid ?
-            base.update('Questionario/' + user.uid, {
-                data: { 
-                    obj,
-                    then: () => {
+            base.update('municipios/' + user.uid, {
+                data: obj,
+                then: () => {
                     this.setState({
-                        salvo: true
+                        salvo: true,
+                        progresso: this.state.progresso
                     })
-                    }
                 }
             }).catch(error => {
                 console.log(error)
             })
             :
-            base.push('Questionario', {
+            base.push('municipios' + user.uid, {
                 data: {
                     obj,
                     then: () => {
                         this.setState({
-                            salvo: true
+                            salvo: true,
+                            progresso: this.state.progresso
                         })
                     }
                 }
@@ -92,15 +94,14 @@ class Perguntas2 extends Component {
         if (this.state.salvo) {
             return <Redirect to={this.state.rota} />
         }
+
         return (
             <div>
                 <Header />
                 <SidebarQuest />
                 <form className="flex row1 quest" onSubmit={this.handleSave}>
                     <div className="flex column">
-                        <progress id="progress" value={this.state.progresso} max='2'>
-                            <div id="barra"></div>
-                        </progress>
+                        <ProgressBar/>
                         <h1>Questionário</h1>
                         <div className="perguntasp flex column">
                             <p className="pergunta">2.1. O município realiza ações relevantes em educação ambiental?</p>

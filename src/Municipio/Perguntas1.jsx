@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink, Redirect } from 'react-router-dom'
 import { base, auth } from '../base'
+import ProgressBar from '../ProgressBar'
 
 import '../CSS/Questionario.css'
 
@@ -11,9 +12,25 @@ class Perguntas1 extends Component {
         this.handleSave = this.handleSave.bind(this);
 
         this.state = {
+            progresso: 0,
             rota: '/questionario/educacao-ambiental',
             salvo: false
         }
+    }
+
+    componentDidMount = async () => {
+        await auth.onAuthStateChanged( user => {
+            base.fetch('Questionario/' + user.uid + '/progresso', {
+                contex: this,
+                asArray: false,
+                then: ( data ) => {
+                    console.log('data',data)
+                    this.setState({
+                        progresso: data
+                    })
+                }
+            })
+        } )    
     }
 
     //Salvar no banco
@@ -22,15 +39,18 @@ class Perguntas1 extends Component {
 
         const p3 = this.p3.value
         const p5 = this.p5.value
+        var progresso = " "
 
         const x = window.document.getElementsByClassName('medio')
+        const y = window.document.querySelectorAll('input[type=text]')
         var user = auth.currentUser;
 
         console.log(user.uid)
 
         const obj = {
             p3,
-            p5
+            p5,
+            progresso
         }
 
         for (let i = 0; i < x.length; i++) {
@@ -40,27 +60,43 @@ class Perguntas1 extends Component {
                 console.log(x[i].value)
 
                 obj[x[i].name] = x[i].value
+
+                this.setState({
+                    progresso: this.state.progresso++
+                })
+
+            }
+
+            obj.progresso = this.state.progresso
+
+        }
+
+        for (let i = 0; i < y.length; i++) {
+            if (y[i].value != "") {
+                obj.progresso++
             }
         }
 
         user.uid ?
-            base.update('Questionario/' + user.uid, {
+            base.update('municipios/' + user.uid, {
                 data: obj,
                 then: () => {
                     this.setState({
-                        salvo: true
+                        salvo: true,
+                        progresso: this.state.progresso
                     })
                 }
             }).catch(error => {
                 console.log(error)
             })
             :
-            base.push('Questionario' + user.uid, {
+            base.push('municipios' + user.uid, {
                 data: {
                     obj,
                     then: () => {
                         this.setState({
-                            salvo: true
+                            salvo: true,
+                            progresso: this.state.progresso
                         })
                     }
                 }
@@ -81,6 +117,7 @@ class Perguntas1 extends Component {
         return (
             <form className="flex row1 quest" onSubmit={this.handleSave}>
                 <div className="flex column">
+                <ProgressBar/>
                     <h1>Questionário</h1>
                     <div className="perguntasp flex column">
                         <p className="pergunta">1.1 Que porcentagem de domicílios são atendidos com água tratada/encanada, considerando área urbana e rural?</p>

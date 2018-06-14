@@ -46,6 +46,7 @@
 }
 
 .header-container {
+  height: 100vh;
   background: url('../images/fundo.jpeg');
   background-size: cover;
   background-position: center;
@@ -69,6 +70,7 @@
   background-color: #fff;
 }
 
+
 .navigation-nav {
   flex-grow: 1;
 }
@@ -90,6 +92,7 @@
   font-size: inherit;
   font-weight: 100;
 }
+
 
 .link {
   font-size: 1.5em;
@@ -174,21 +177,32 @@
   position: fixed;
   top: 0;
   width: 100%; 
-  padding: 0 50px;
+  padding: 0 20px;
   height: 70px;  
   background-color: #f2f2f2;
   z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header {
+  width: inherit;
+}
+
+.titulo {
+  flex-grow: 1;
 }
 
 .btnSair {
-  top: 0;
   height: 25px;
   width: 50px;
   border-radius: 10%;
-  float: right;
+  /* float: right; */
   border: none;
   background: #000;
   color: #fff;
+  
 }
 
 .button-create {
@@ -267,8 +281,10 @@
 }
 
 .analise {
-  margin-left: 220px;
-  margin-top: 90px;
+  margin-left: 185px;
+  margin-top: 85px;
+  width: 100vw;
+  flex-wrap: wrap;
 }
 
 .card-analise {
@@ -277,6 +293,8 @@
   border-radius: 5px;
   width: 250px;
   height: 90px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .card-analise:hover {
@@ -288,7 +306,7 @@
 }
 
 #progress {
-  margin-top: 70px;
+  margin-top: 20px;
   width: 100%;
   background-color: grey;
 }

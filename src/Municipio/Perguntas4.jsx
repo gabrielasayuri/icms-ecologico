@@ -4,6 +4,7 @@ import { base, auth } from '../base'
 import Header from './Header'
 import SidebarQuest from './SidebarQuest'
 import '../CSS/Questionario.css'
+import ProgressBar from '../ProgressBar'
 
 
 class Perguntas4 extends Component {
@@ -12,6 +13,7 @@ class Perguntas4 extends Component {
         this.handleSave = this.handleSave.bind(this);
 
         this.state = {
+            progresso: 0,
             rota: '',
             salvo: false
         }
@@ -21,11 +23,16 @@ class Perguntas4 extends Component {
         event.preventDefault()
 
         const x = window.document.getElementsByClassName('medio')
+        const y = window.document.querySelectorAll('input[type=text]')
         var user = auth.currentUser;
+
+        var progresso = " "
 
         console.log(user.uid)
 
-        const obj = {}
+        const obj = {
+            progresso
+        }
 
         for (let i = 0; i < x.length; i++) {
 
@@ -34,27 +41,43 @@ class Perguntas4 extends Component {
                 console.log(x[i].value)
 
                 obj[x[i].name] = x[i].value
+
+                this.setState({
+                    progresso: this.state.progresso++
+                })
+
+            }
+
+            obj.progresso = this.state.progresso
+
+        }
+
+        for (let i = 0; i < y.length; i++) {
+            if (y[i].value != "") {
+                obj.progresso++
             }
         }
 
         user.uid ?
-            base.update('Questionario/' + user.uid, {
+            base.update('municipios/' + user.uid, {
                 data: obj,
                 then: () => {
                     this.setState({
-                        salvo: true
+                        salvo: true,
+                        progresso: this.state.progresso
                     })
                 }
             }).catch(error => {
                 console.log(error)
             })
             :
-            base.push('Questionario', {
+            base.push('municipios' + user.uid, {
                 data: {
                     obj,
                     then: () => {
                         this.setState({
-                            salvo: true
+                            salvo: true,
+                            progresso: this.state.progresso
                         })
                     }
                 }
@@ -65,6 +88,7 @@ class Perguntas4 extends Component {
     }
 
     render() {
+
         {/*if (this.state.salvo) {
             return <Redirect to={this.state.rota} />
         }*/}
@@ -74,6 +98,9 @@ class Perguntas4 extends Component {
                 <SidebarQuest />
                 <form className="flex row1 quest" onSubmit={this.handleSave}>
                     <div className="flex column">
+                    <div clasName="top">
+                    <ProgressBar/>
+                    </div>
                         <h1>Questionário</h1>
                         <div className="perguntasp flex column">
                             <p className="pergunta">4.1. O município possui algum tipo de ordenamento territorial?</p>

@@ -22,14 +22,12 @@ class CadastrosRecentes extends Component {
   }
 
   componentDidMount() {
-
     this.ref = base.syncState('municipios', {
       context: this,
       state: 'municipios',
       asArray: true,
       queries: {
-        orderByChild: 'nome',
-        limitToFirst: 4
+        orderByChild: 'nome'
       }
     })
   }
@@ -51,8 +49,6 @@ class CadastrosRecentes extends Component {
     this.senha.value = this.state.municipios[key].senha
     this.cep.value = this.state.municipios[key].cep
     this.ibge.value = this.state.municipios[key].ibge
-    this.nomeInterface.value = this.state.municipios[key].nomeInterface
-    this.areaInterface.value = this.state.municipios[key].areaInterface
     this.setState({
       key: this.state.municipios[key].key
     })
@@ -65,8 +61,6 @@ class CadastrosRecentes extends Component {
     const senha = this.senha.value
     const cep = this.cep.value
     const ibge = this.ibge.value
-    const nomeInterface = this.nomeInterface.value
-    const areaInterface = this.areaInterface.value
 
     this.state.key ?
       base.update('municipios/' + this.state.key, {
@@ -75,9 +69,7 @@ class CadastrosRecentes extends Component {
           email,
           senha,
           cep,
-          ibge,
-          nomeInterface,
-          areaInterface
+          ibge
         }
       }).then(() => {
         this.setState({
@@ -87,34 +79,30 @@ class CadastrosRecentes extends Component {
         console.log(error)
       })
       :
-      base.push('municipios', {
+      base.push('municipios' + this.state.key, {
         data: {
           nome,
           email,
           senha,
           cep,
-          ibge,
-          nomeInterface,
-          areaInterface
+          ibge
         }
       }).then(() => {
       }).catch(error => {
         console.log(error)
       })
-    this.nome = ''
-    this.email = ''
-    this.senha = ''
-    this.cep = ''
-    this.ibge = ''
-    this.nomeInterface = ''
-    this.areaInterface = ''
+    this.nome = ""
+    this.email = ""
+    this.senha = ""
+    this.cep = ""
+    this.ibge = ""
   }
 
-  handleSearch = () => {
+  /*handleSearch = () => {
     this.setState({
       search: this.search.value
     })
-  }
+  }*/
 
   render() {
     return (
@@ -168,7 +156,7 @@ class CadastrosRecentes extends Component {
 
         <div className='flex column vertical-align-row list-wrapper'>
 
-          <InputField
+          {/*<InputField
             refValue={ref => this.search = ref}
             idValue='search'
             keyUp={this.handleSearch}
@@ -176,15 +164,14 @@ class CadastrosRecentes extends Component {
             requiredValue={false}
             label='Pesquisa'
             spanWidth="70px"
-          />
+          />*/}
 
           {
             Object
               .keys(this.state.municipios)
               .map(posicaoVet => {
-                if (this.state.municipios[posicaoVet].nome.toUpperCase().includes(this.search.value.toUpperCase())) {
+                /*if (this.state.municipios[posicaoVet].nome.toUpperCase().includes(this.search.value.toUpperCase())) {}*/
                   return this.listItem(posicaoVet, this.state.municipios[posicaoVet])
-                }
               })
           }
         </div>

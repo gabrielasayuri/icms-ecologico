@@ -65,7 +65,7 @@ class LoginPage extends Component {
     return (
       <div>
         <Navbar />
-        <div className='header-container flex row center-center full-view' >
+        <div className='header-container flex row center-center' >
           <form onSubmit={this.handleClick} className="login-wrapper login flex column justify-center">
 
             {/*<div className='brand-login'>

@@ -12,8 +12,10 @@ class Header extends Component {
     render() {
         return (
             <div className="divHeader">
+                <div className="titulo">
                     <h1>ICMS<span className='title'>Ecológico</span></h1>
                     <h5>MATO GROSSO DO SUL</h5>
+                </div>
                 <button className="btnSair" onClick={() => handleExit()}>Sair</button>
             </div>
         );
