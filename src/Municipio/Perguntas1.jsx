@@ -118,7 +118,7 @@ class Perguntas1 extends Component {
             <form className="flex row1 quest" onSubmit={this.handleSave}>
                 <div className="flex column">
                 <ProgressBar/>
-                    <h1>Questionário</h1>
+                    <h1 className="branco">Questionário</h1>
                     <div className="perguntasp flex column">
                         <p className="pergunta">1.1 Que porcentagem de domicílios são atendidos com água tratada/encanada, considerando área urbana e rural?</p>
                         <div className='flex row1'>

@@ -45,6 +45,10 @@
   align-items: center;
 }
 
+.branco {
+  color: white;
+}
+
 .header-container {
   height: 100vh;
   background: url('../images/fundo.jpeg');

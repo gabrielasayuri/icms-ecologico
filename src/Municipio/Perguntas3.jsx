@@ -107,7 +107,7 @@ class Perguntas3 extends Component {
                 <form className="flex row1 quest" onSubmit={this.handleSave}>
                     <div className="flex column">
                     <ProgressBar/>
-                        <h1>Questionário</h1>
+                        <h1 className="branco">Questionário</h1>
                         <div className="perguntasp flex column">
                             <p className="pergunta">3.1. Já existe no município Secretaria, núcleo, departamento ou gerência destinada à conservação ambiental?  </p>
                             <div className='flex row1'>

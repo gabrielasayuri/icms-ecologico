@@ -101,7 +101,7 @@ class Perguntas4 extends Component {
                     <div clasName="top">
                     <ProgressBar/>
                     </div>
-                        <h1>Questionário</h1>
+                        <h1 className="branco">Questionário</h1>
                         <div className="perguntasp flex column">
                             <p className="pergunta">4.1. O município possui algum tipo de ordenamento territorial?</p>
                             <div className='flex row1'>

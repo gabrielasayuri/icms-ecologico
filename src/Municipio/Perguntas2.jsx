@@ -102,7 +102,7 @@ class Perguntas2 extends Component {
                 <form className="flex row1 quest" onSubmit={this.handleSave}>
                     <div className="flex column">
                         <ProgressBar/>
-                        <h1>Questionário</h1>
+                        <h1 className="branco">Questionário</h1>
                         <div className="perguntasp flex column">
                             <p className="pergunta">2.1. O município realiza ações relevantes em educação ambiental?</p>
                             <div className='flex row1'>
