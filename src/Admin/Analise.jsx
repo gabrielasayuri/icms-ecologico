@@ -5,13 +5,13 @@ import { auth, base } from '../base'
 import Sidebar from '../Sidebar';
 import Header from '../Municipio/Header'
 import ProgressBar from '../ProgressBar'
+import ProgressBarOk from '../ProgressBarOk'
 
 class AdminPage extends Component {
 
   constructor(props) {
     super(props)
-
-    this.state = {
+     this.state = {
       municipios: [],
       key: null
     }
@@ -23,12 +23,6 @@ class AdminPage extends Component {
        state: 'municipios',
        asArray: true
      })
-
-     base.syncState('Questionario', {
-      context: this,
-      state: 'Questionario',
-      asArray: true
-     })
   }
 
   mostraMunicipio = ( chave ) => {
@@ -36,11 +30,8 @@ class AdminPage extends Component {
     return(
       <div className="card-analise">
           <div className="container">
-            <h4><b>{municipio.nome}</b></h4> 
-            <h4><b>{municipio.progresso}</b></h4>
-            
-            <ProgressBar/>
-            
+            <h4><b>{municipio.nome}</b></h4>             
+            <ProgressBarOk/>            
           </div>
         </div>
     )
@@ -49,9 +40,16 @@ class AdminPage extends Component {
   render() {
     return (
       <div>
-        <Header />
+    <Header />
         <Sidebar />
         <div className="flex row1 analise">
+
+        <div className="card-analise">
+          <div className="container">
+            <h4><b>Nova Andradina</b></h4>             
+            <ProgressBar/>            
+          </div>
+        </div>
         
           {
             Object
@@ -59,7 +57,7 @@ class AdminPage extends Component {
               .map( chave => this.mostraMunicipio(chave))
           }
         </div>
-      </div>
+        </div>
     )
   }
 }

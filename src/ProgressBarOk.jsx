@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { auth, base } from './base'
 
-class ProgressBar extends Component {
+class ProgressBarOk extends Component {
     constructor( props ) {
         super()
         this.state = {
@@ -12,7 +12,7 @@ class ProgressBar extends Component {
 
     componentDidMount = async () => {
         await auth.onAuthStateChanged( user => {
-            base.fetch('Questionario/ox0tJih5vAg3SiHbDXwaiZMxZiz2/progresso' /*+ user.uid + '/progresso'*/, {
+            base.fetch('Questionario/' + user.uid + '/progresso', {
                 contex: this,
                 asArray: false,
                 then: ( data ) => {
@@ -36,4 +36,4 @@ class ProgressBar extends Component {
 
 }
 
-export default ProgressBar
+export default ProgressBarOk
