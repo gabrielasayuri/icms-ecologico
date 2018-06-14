@@ -17,7 +17,6 @@ class ProgressBar extends Component {
                 asArray: false,
                 then: ( data ) => {
                     console.log('data',data)
-                    console.log(user.uid)
                     this.setState({
                         progresso: data
                     })
